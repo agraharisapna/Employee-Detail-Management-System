@@ -1,0 +1,121 @@
+{% extends 'base.html'%}
+
+{% block title %} Registeration Page {% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+
+<div class= "container mt-4" style="width:40%; height:50px;">
+    <h2 class="title text-center">Registration Form</h2>
+    <p class="form-group text-center">Already have an account? <a href="/login/">Login</a></p>
+    
+    {% if messages %}
+        <p class="messages">
+            {% for message in messages %}
+            <div class="alert alert-danger" role="alert">
+                {{ message }}
+            </div>
+            {% endfor %}
+        </p>
+    {% endif %}
+
+    <form method= "POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label class="label">Name</label>
+            <input class="form-control" type="text" name="first_name">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" name="email" aria-describedby="emailHelp">
+            <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" name="password">
+        </div>
+        
+        <div class="form-group">
+            <label class="label">Designation</label>
+            <input class="form-control" type="text" name="designation">
+        </div>
+
+        <div class="form-group">
+            <label for="datepicker">Enter DOB</label>
+            <div class="input-group">
+                <input type="text" class="form-control" id="datepicker-dob" placeholder="Select date" name="user_dob">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" id="datepicker-btn-dob"><i class="fa fa-calendar"></i></button>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="form-group">
+            <label for="datepicker">Date Joined</label>
+            <div class="input-group">
+                <input type="text" class="form-control" id="datepicker" placeholder="Select date"  name="date_joined">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" id="datepicker-btn"><i class="fa fa-calendar"></i></button>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Select Gender</label>
+            <select class="form-control" id="exampleFormControlSelect1" name="gender">
+              <option value="">Select One</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="others">Other</option>
+            </select>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class = "form-group mt-2 ">
+                    <label for="exampleFormControlFile1">Select Role</label>
+                    <br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="role" value="Manager">
+                        <label class="form-check-label" for="inlineRadio1">Manager</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="role" value="Employee">
+                        <label class="form-check-label" for="inlineRadio2">Employee</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="form-group mt-2 ">
+                    <label for="exampleFormControlFile1">Upload Image</label>
+                    <input type="file" class="form-control-file" name="imagess">
+                </div>
+            </div>
+          </div>
+          
+          
+        <div class="form-group text-center" >
+            <button type="submit" class="btn btn-success w-100" style="height:35px">Submit</button>
+        </div>
+        <br><br>
+    </form>
+
+</div>
+
+
+
+{% endblock content %}
+
+
+
+
+
+

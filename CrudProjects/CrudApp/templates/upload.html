@@ -1,0 +1,38 @@
+
+
+{% extends 'base.html'%}
+
+{% block title %} ScreenSave Page {% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+    <form method="post" enctype="multipart/form-data" class="">
+        {% csrf_token %}
+
+        <h2 class="title text-center mt-4">Register user through Excel Sheet</h2>
+
+        <div class="container mt-4 d-flex align-items-center justify-content-center" style="margin-top:50%">
+            <div class="row">
+              <div class="col-sm">
+
+                <div class="card" style="width: 18rem; margin-top:40%">
+                    <ul class="list-group list-group-flush">
+                    
+                      <li class="list-group-item">Upload Excel Sheet</li>
+                      <li class="list-group-item"><input type="file" name="file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"></li>
+                      <button type="submit" class="btn btn-primary">Upload</button>
+                    </ul>
+                    {% comment %} <button type="submit">Upload</button> {% endcomment %}
+                  </div>
+                  <h4 for="exampleFormControlFile1" class="text-center mt-3">OR</h4>
+                </div>             
+            </div>
+        </div>
+        <a type="submit" class="btn btn-warning mt-4" href="/register/" style="margin-left:41%">Register Here</a>
+        
+        <a type="submit" class="btn btn-warning mt-4" href="/login/" style="margin-right:35%;">Login Here</a>
+    </form>
+
+{% endblock content %}

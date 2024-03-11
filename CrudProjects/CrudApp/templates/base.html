@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta http-equiv='cache-control' content='no-cache'>
+    <meta http-equiv='expires' content='0'>
+    <meta http-equiv='pragma' content='no-cache'>
+    <title>{% block title %} {% endblock title %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />  
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+</head>
+<body>
+    
+  {% block content %}
+
+  {% endblock content %}
+    <!-- Include the required scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+    <!-- Initialize the datepicker -->
+    <script>
+        $(document).ready(function() {
+            // Initialize datepicker
+            $('#datepicker-dob').datepicker({
+                format: 'yyyy-mm-dd', // Change the date format if needed
+                autoclose: true,
+            });
+
+            // Show the datepicker when the button is clicked
+            $('#datepicker-btn-dob').click(function() {
+                $('#datepicker-dob').datepicker('show');
+            });
+        });
+
+        $(document).ready(function() {
+          // Initialize datepicker
+          $('#datepicker').datepicker({
+              format: 'yyyy-mm-dd', // Change the date format if needed
+              autoclose: true,
+          });
+
+          // Show the datepicker when the button is clicked
+          $('#datepicker-btn').click(function() {
+              $('#datepicker').datepicker('show');
+          });
+      });
+    </script>
+</body>
+</html>

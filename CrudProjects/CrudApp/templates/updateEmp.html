@@ -1,0 +1,66 @@
+{% extends 'base.html'%}
+
+{% block title %} Update Page {% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+
+<div class= "container mt-4" style="width:40%; height:50px;">
+    <h2 class="title text-center">Update Form</h2>
+    
+    {% if messages %}
+        <p class="messages">
+            {% for message in messages %}
+            <div class="alert alert-danger" role="alert">
+                {{ message }}
+            </div>
+            {% endfor %}
+        </p>
+    {% endif %}
+
+    <form method="post" action="{% url 'update_emp' user.id %}">
+        {% csrf_token %}
+
+        
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            
+            <input type="email" class="form-control" name="email" value="{{ user.email }}">
+            <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" name="password" value="{{ user.password }}">
+        </div>
+        
+        <div class="form-group">
+            <label class="label">Designation</label>
+            <input class="form-control" type="text" name="user_designation" value="{{ user.user_designation }}">
+            
+        </div>  
+        
+        
+          
+        <div class="form-group text-center" >
+            <button type="submit" class="btn btn-success w-100" style="height:35px">Update Data</button>
+        </div>
+        <br><br>
+
+
+    </form>
+
+
+ </div>
+
+
+
+{% endblock content %}
+
+
+
+
+
+
